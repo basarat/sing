@@ -1,5 +1,9 @@
 import fs = require('fs');
 var ytdl = require('ytdl-core');
+var ffmpeg = require('fluent-ffmpeg');
+if (process.platform == 'win32') {
+    ffmpeg.setFfmpegPath(`${__dirname}/../bin/${process.platform}/ffmpeg`);
+}
 
 /**
  * https://github.com/fent/node-ytdl-core/blob/0131b01b3cd629e6261d304b632dab7f2854fa10/lib/formats.js
@@ -17,7 +21,7 @@ interface YouTubeFormat {
     audioBitrate: number;
 }
 
-let url = 'https://www.youtube.com/watch?v=-CmadmM5cOk';
+let url = process.argv[2] || 'https://www.youtube.com/watch?v=-CmadmM5cOk';
 
 // get title 
 ytdl.getInfo(url, (err, info) => {
@@ -25,15 +29,22 @@ ytdl.getInfo(url, (err, info) => {
         console.error(err);
         process.exit(1);
     }
-    
+
     let title = info.title;
     
     // now download: 
-    ytdl(url, {
-        filter: (format:YouTubeFormat) => {
+    let stream = ytdl(url, {
+        filter: (format: YouTubeFormat) => {
             return format.container == 'mp4' && format.resolution == '720p'
         }
-    }).pipe(fs.createWriteStream(`${title}.mp4`));
+    });
+    
+    // save mp4
+    stream.pipe(fs.createWriteStream(`${title}.mp4`));
+    
+    // convert mp3 
+    let proc = new ffmpeg({ source: stream });
+    proc.saveToFile(`${title}.mp3`);
 })
 // 
 // ytdl(, {
