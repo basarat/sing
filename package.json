@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Youtube mp3 downloader",
   "main": "src/index.js",
+  "bin":{
+    "sing": "src/index.js"  
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

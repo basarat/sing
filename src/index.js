@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var fs = require('fs');
 var ytdl = require('ytdl-core');
 var ffmpeg = require('fluent-ffmpeg');
