@@ -1,0 +1,27 @@
+{
+  "name": "sing",
+  "version": "1.0.0",
+  "description": "Youtube mp3 downloader",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/basarat/sing.git"
+  },
+  "keywords": [
+    "ffmpeg",
+    "mp3",
+    "youtube"
+  ],
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/basarat/sing/issues"
+  },
+  "homepage": "https://github.com/basarat/sing#readme",
+  "dependencies": {
+    "ytdl-core": "^0.6.0"
+  }
+}
