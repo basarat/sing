@@ -13,6 +13,7 @@ ytdl.getInfo(url, function (err, info) {
     }
     var title = info.title;
     title = title.replace(/"/g, '');
+    console.log("Downloading: " + title);
     var stream = ytdl(url, {
         filter: function (format) {
             return format.container == 'mp4' && format.resolution == '720p';

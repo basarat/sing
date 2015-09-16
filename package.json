@@ -1,6 +1,6 @@
 {
   "name": "sing",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Youtube mp3 downloader",
   "main": "src/index.js",
   "bin":{

@@ -33,6 +33,7 @@ ytdl.getInfo(url, (err, info) => {
 
     let title = info.title;
     title = title.replace(/"/g, '');
+    console.log(`Downloading: ${title}`);
     
     // now download: 
     let stream = ytdl(url, {
