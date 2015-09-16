@@ -12,7 +12,7 @@ ytdl.getInfo(url, function (err, info) {
         process.exit(1);
     }
     var title = info.title;
-    title = title.replace(/"/g, '');
+    title = title.replace(/"/g, '').replace(/\?/g, '');
     console.log("Downloading: " + title);
     var stream = ytdl(url, {
         filter: function (format) {
