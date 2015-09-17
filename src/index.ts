@@ -32,8 +32,8 @@ ytdl.getInfo(url, (err, info) => {
     }
 
     let title = info.title;
-    title = title.replace(/"/g, '').replace(/\?/g, '');
-    console.log(`Downloading: ${title}`);
+    title = title.replace(/"|'|\?|\|/g,'');
+    console.log(`Downloading/Converting: ${title}`);
     
     // now download: 
     let stream = ytdl(url, {
