@@ -3,8 +3,8 @@
   "version": "1.0.4",
   "description": "Youtube mp3 downloader",
   "main": "src/index.js",
-  "bin":{
-    "sing": "src/index.js"  
+  "bin": {
+    "sing": "src/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,6 +26,6 @@
   "homepage": "https://github.com/basarat/sing#readme",
   "dependencies": {
     "fluent-ffmpeg": "^2.0.1",
-    "ytdl-core": "^0.6.0"
+    "ytdl-core": "^0.7.9"
   }
 }
