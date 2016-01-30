@@ -37,9 +37,9 @@ ytdl.getInfo(url, (err, info) => {
 
     // now download:
     let stream = ytdl(url, {
-        filter: (format: YouTubeFormat) => {
-            return format.container == 'mp4' && format.resolution == '720p'
-        }
+        // filter: (format: YouTubeFormat) => {
+        //     return format.container == 'mp4' && format.resolution == '720p'
+        // }
     });
 
     // save mp4

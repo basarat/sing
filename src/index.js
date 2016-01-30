@@ -15,11 +15,7 @@ ytdl.getInfo(url, function (err, info) {
     var title = info.title;
     title = title.replace(/"|'|\?|\||\\|\//g, '');
     console.log("Downloading/Converting: " + title);
-    var stream = ytdl(url, {
-        filter: function (format) {
-            return format.container == 'mp4' && format.resolution == '720p';
-        }
-    });
+    var stream = ytdl(url, {});
     stream.pipe(fs.createWriteStream(title + ".mp4"));
     var proc = new ffmpeg({ source: stream });
     proc.saveToFile(title + ".mp3");
