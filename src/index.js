@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+"use strict";
 var fs = require('fs');
 var ytdl = require('ytdl-core');
 var ffmpeg = require('fluent-ffmpeg');
@@ -12,7 +13,7 @@ ytdl.getInfo(url, function (err, info) {
         process.exit(1);
     }
     var title = info.title;
-    title = title.replace(/"|'|\?|\|/g, '');
+    title = title.replace(/"|'|\?|\|\\|\//g, '');
     console.log("Downloading/Converting: " + title);
     var stream = ytdl(url, {
         filter: function (format) {

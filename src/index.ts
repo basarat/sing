@@ -24,7 +24,7 @@ interface YouTubeFormat {
 
 let url = process.argv[2] || 'https://www.youtube.com/watch?v=-CmadmM5cOk';
 
-// get title 
+// get title
 ytdl.getInfo(url, (err, info) => {
     if (err) {
         console.error(err);
@@ -32,24 +32,24 @@ ytdl.getInfo(url, (err, info) => {
     }
 
     let title = info.title;
-    title = title.replace(/"|'|\?|\|/g,'');
+    title = title.replace(/"|'|\?|\|\\|\//g,'');
     console.log(`Downloading/Converting: ${title}`);
-    
-    // now download: 
+
+    // now download:
     let stream = ytdl(url, {
         filter: (format: YouTubeFormat) => {
             return format.container == 'mp4' && format.resolution == '720p'
         }
     });
-    
+
     // save mp4
     stream.pipe(fs.createWriteStream(`${title}.mp4`));
-    
-    // convert mp3 
+
+    // convert mp3
     let proc = new ffmpeg({ source: stream });
     proc.saveToFile(`${title}.mp3`);
 })
-// 
+//
 // ytdl(, {
 //     filter: (format:YouTubeFormat) => {
 //         console.log(format);

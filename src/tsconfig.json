@@ -23,5 +23,8 @@
         "./index.ts",
         "./typings/node/node.d.ts",
         "./typings/tsd.d.ts"
-    ]
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
 }
