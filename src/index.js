@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 "use strict";
-var fs = require('fs');
+var fs = require("fs");
 var ytdl = require('ytdl-core');
 var ffmpeg = require('fluent-ffmpeg');
 if (process.platform == 'win32') {

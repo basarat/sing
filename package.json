@@ -26,6 +26,6 @@
   "homepage": "https://github.com/basarat/sing#readme",
   "dependencies": {
     "fluent-ffmpeg": "^2.0.1",
-    "ytdl-core": "^0.7.9"
+    "ytdl-core": "0.10.0"
   }
 }
