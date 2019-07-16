@@ -1,4 +1,7 @@
 # sing
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/basarat/sing.svg)](https://greenkeeper.io/)
+
 Youtube MP3 / MP4 downloader
 
 ## Get it
